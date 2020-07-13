@@ -16,6 +16,7 @@ const JWTIdToken = require(`${ROOT_DIR}/lib/oauth/jwt_id_token`);
 
 const MOCK_CLIENT_ID = '0123456789abcdef';
 const MOCK_USER_ID = '0123456789abcdef0123456789abcdef';
+const MOCK_ANON_ID = 'ANONYMOUSID0987654321';
 const MOCK_SCOPES = 'profile https://identity.mozilla.com/apps/scoped-example';
 const MOCK_UNIX_TIMESTAMP = Math.round(Date.now() / 1000);
 const MOCK_TOKEN =
@@ -399,6 +400,7 @@ describe('/oauth/ routes', () => {
       assert.calledWithExactly(mockEmitMetricsEvent, 'oauth.token.created', {
         grantType: 'authorization_code',
         uid: MOCK_USER_ID,
+        ecosystemAnonId: MOCK_ANON_ID,
       });
       assert.deepEqual(resp, MOCK_TOKEN_RESPONSE);
     });
