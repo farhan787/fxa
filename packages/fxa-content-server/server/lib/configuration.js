@@ -748,6 +748,12 @@ const conf = (module.exports = convict({
     env: 'SYNC_TOKENSERVER_URL',
     format: 'url',
   },
+  ecosystem_anon_id_keys: {
+    default: [],
+    doc: 'Account Ecosystem Telemetry pipeline JWK public keys',
+    env: 'ECOSYSTEM_ANON_ID_KEYS',
+    format: Array,
+  },
   template_path: {
     default: path.resolve(__dirname, '..', 'templates'),
     doc: 'The location of server-rendered templates',
